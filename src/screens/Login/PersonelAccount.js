@@ -12,7 +12,7 @@ const PersonelAccount = () => {
 
     return (
         <SafeAreaView style={styles.maincontainer}>
-            <ScrollView style={{ flexGrow: 1 }}>
+            <ScrollView style={{ flexGrow: 1 }} contentContainerStyle={styles.maincontent}>
 
                 <View style={styles.container}>
                     <Image source={require("../../assets/Logo.png")} resizeMode="contain" style={styles.image} />

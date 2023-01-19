@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import { StatusBar, Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { StatusBar, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import { styles } from './style';
 import { Colors } from '../../constants/Colors'
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -19,8 +17,7 @@ const Auth = () => {
                 <View style={styles.subcontainer}>
                     <Text style={styles.loginHeading}>Get Started</Text>
                     <Text style={styles.authtext}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                        molestiae quas vel sint commodi repudiandae consequuntur.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </Text>
                     <TouchableOpacity onPress={() => { navigation.navigate("PersonelAccount") }} style={styles.btn}>
                         <Text style={styles.btntext}>Login</Text>

@@ -16,9 +16,11 @@ const BusinessAccount = () => {
 
     const data = [
         { label: 'Taxi', value: 'Taxi' },
-        { label: 'Tour', value: 'Tour' },
-        { label: 'Hotel', value: 'Hotel' },
+        { label: 'Tour Guide', value: 'Tour Guide' },
         { label: 'Car Rent', value: 'Car Rent' },
+        { label: 'Hotel Reservation', value: 'Hotel Reservation' },
+        { label: 'Business Advertisement', value: 'Business Advertisement' },
+       
 
     ]
 
@@ -103,7 +105,7 @@ const BusinessAccount = () => {
                         />
                     </View>
                     {value != null && value == "Taxi" && <View style={styles.inputContainer}>
-                        <FontAwesome5 name={"mail-bulk"} color={Colors.PrimaryColor} />
+                        <FontAwesome5 name={"car-side"} color={Colors.PrimaryColor} />
                         <TextInput
                             style={styles.textInput}
                             placeholder='Enter your plate number'

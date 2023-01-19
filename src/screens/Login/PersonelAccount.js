@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, ScrollView, Tou
 import { styles } from "./style"
 import { Colors } from '../../constants/Colors'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 
 const PersonelAccount = () => {
@@ -13,7 +12,6 @@ const PersonelAccount = () => {
     return (
         <SafeAreaView style={styles.maincontainer}>
             <ScrollView style={{ flexGrow: 1 }} contentContainerStyle={styles.maincontent}>
-
                 <View style={styles.container}>
                     <Image source={require("../../assets/Logo.png")} resizeMode="contain" style={styles.image} />
                     <View style={styles.subcontainer}>

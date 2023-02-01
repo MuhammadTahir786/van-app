@@ -68,7 +68,7 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 10,
         marginVertical: 10,
         borderRadius: 10,
-        marginHorizontal:20,
+        marginHorizontal:15,
     },
     textInput: {
         marginHorizontal: 10,
@@ -83,7 +83,9 @@ export const styles = StyleSheet.create({
         paddingVertical: 10,
         marginTop: 10,
         borderRadius: 10,
-        width: 250,
+        width: "85%",
+        height:50,
+        justifyContent:"center"
     },
     btntext: {
         fontSize: 15,
@@ -93,11 +95,11 @@ export const styles = StyleSheet.create({
     dropdowncontainer:{
         zIndex:1,
         width:'100%',
-        marginBottom:10
+        marginBottom:10,
     },
     languagedropdowncontainer:{
         zIndex:1,
         marginTop:20,
-         width:"85%"
+        width:"85%",
     }
 })

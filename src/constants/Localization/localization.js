@@ -1,7 +1,5 @@
 import LocalizedStrings from "react-native-localization";
 
-
-
  const Languages = new LocalizedStrings({
     'en': {
         auth_login_btn_txt: "Login",

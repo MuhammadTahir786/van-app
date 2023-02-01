@@ -6,6 +6,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import DropDownPicker from 'react-native-dropdown-picker';
+import DropdownPicker from '../../components/DropdownPicker/DropdownPicker';
 
 const BusinessAccount = () => {
 
@@ -20,8 +21,6 @@ const BusinessAccount = () => {
         { label: 'Car Rent', value: 'Car Rent' },
         { label: 'Hotel Reservation', value: 'Hotel Reservation' },
         { label: 'Business Advertisement', value: 'Business Advertisement' },
-       
-
     ]
 
     return (
@@ -32,49 +31,15 @@ const BusinessAccount = () => {
                 <View style={styles.subcontainer}>
                     <Text style={styles.loginHeading}>Business Account</Text>
                     <View style={styles.dropdowncontainer}>
-                        <DropDownPicker
-                            placeholder="Select Category"
-                            open={open}
-                            value={value}
-                            items={data}
-                            setOpen={setOpen}
-                            setValue={setValue}
-                            placeholderStyle={{color:Colors.PrimaryColor}}
-                            ArrowDownIconComponent={() => {
-                                return (
-                                    <FontAwesome
-                                        color={Colors.PrimaryColor}
-                                        style={{ paddingHorizontal: 5 }}
-                                        name="chevron-down"
-                                    />
-                                );
-                            }}
-                            ArrowUpIconComponent={() => {
-                                return (
-                                    <FontAwesome
-                                        color={Colors.PrimaryColor}
-                                        style={{ paddingHorizontal: 5 }}
-                                        name="chevron-up"
-                                    />
-                                );
-                            }}
+                            <DropdownPicker
+                                placeholder="Select Category"
+                                open={open}
+                                value={value}
+                                data={data}
+                                setOpen={setOpen}
+                                setValue={setValue}
 
-                            TickIconComponent={() => {
-                                return (
-                                    <FontAwesome
-                                        color={Colors.PrimaryColor}
-                                        style={{ paddingHorizontal: 5 }}
-                                        name="check"
-                                    />
-                                );
-                            }}
-                            arrowIconStyle={{ color: Colors.PrimaryColor }}
-                            listItemLabelStyle={{ color: Colors.PrimaryColor }}
-                            labelStyle={{ color: Colors.PrimaryColor }}
-                            style={{ borderColor: Colors.PrimaryColor }}
-                            dropDownContainerStyle={{ borderColor: Colors.PrimaryColor }}
-
-                        />
+                            />
                     </View>
                     <View style={styles.inputContainer}>
                         <FontAwesome5 name={"user-alt"} color={Colors.PrimaryColor} />

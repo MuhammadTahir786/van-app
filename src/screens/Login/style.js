@@ -8,8 +8,9 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
     },
     maincontent: {
-        justifyContent: "center",
-        flex: 1
+        // justifyContent: "center",
+        // flex: 1,
+        // paddingBottom:50
     },
     container: {
         flex: 1,
@@ -42,6 +43,7 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         paddingHorizontal: 15,
         paddingVertical: 15,
+        alignItems:"center"
 
     },
     loginHeading: {
@@ -51,6 +53,13 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         marginVertical: 15
     },
+    languageHeading:{
+        fontWeight: "bold",
+        color: Colors.PrimaryColor,
+        fontSize: 15,
+        textAlign: "center",
+        marginBottom:10
+    },
     inputContainer: {
         flexDirection: "row",
         alignItems: "center",
@@ -59,7 +68,7 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 10,
         marginVertical: 10,
         borderRadius: 10,
-        zIndex:0
+        marginHorizontal:20,
     },
     textInput: {
         marginHorizontal: 10,
@@ -73,7 +82,7 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 50,
         paddingVertical: 10,
         marginTop: 10,
-        borderRadius: 50,
+        borderRadius: 10,
         width: 250,
     },
     btntext: {
@@ -85,5 +94,10 @@ export const styles = StyleSheet.create({
         zIndex:1,
         width:'100%',
         marginBottom:10
+    },
+    languagedropdowncontainer:{
+        zIndex:1,
+        marginTop:20,
+         width:"85%"
     }
 })

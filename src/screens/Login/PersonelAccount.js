@@ -4,6 +4,7 @@ import { styles } from "./style"
 import { Colors } from '../../constants/Colors'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
+import Languages from '../../constants/Localization/localization';
 
 const PersonelAccount = () => {
 

@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, ScrollView, Tou
 import { styles } from './style';
 import { Colors } from '../../constants/Colors'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
-import DropDownPicker from 'react-native-dropdown-picker';
 import DropdownPicker from '../../components/DropdownPicker/DropdownPicker';
+import CountryPickerModal from '../../components/CountryPicker/CountryPicker';
 
 const BusinessAccountSignup = () => {
 
@@ -14,6 +14,9 @@ const BusinessAccountSignup = () => {
 
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(null);
+    const [country, setCountry] = useState('')
+    const [countryCode, setCountryCode] = useState('')
+    const [passwordVisible, setPasswordVisible] = useState(true)
 
     const data = [
         { label: 'Taxi', value: 'Taxi' },
@@ -25,12 +28,12 @@ const BusinessAccountSignup = () => {
 
     return (
         <SafeAreaView style={styles.maincontainer}>
-            <ScrollView style={{flexGrow:1}} contentContainerStyle={styles.maincontent}>
-            <View style={styles.container}>
-                <Image source={require("../../assets/Logo.png")} resizeMode="contain" style={styles.image} />
-                <View style={styles.subcontainer}>
-                    <Text style={styles.loginHeading}>Business Account</Text>
-                    <View style={styles.dropdowncontainer}>
+            <ScrollView style={{ flexGrow: 1 }} contentContainerStyle={styles.maincontent}>
+                <View style={styles.container}>
+                    <Image source={require("../../assets/Logo.png")} resizeMode="contain" style={styles.image} />
+                    <View style={styles.subcontainer}>
+                        <Text style={styles.loginHeading}>Business Account</Text>
+                        <View style={styles.dropdowncontainer}>
                             <DropdownPicker
                                 placeholder="Select Category"
                                 open={open}
@@ -38,56 +41,132 @@ const BusinessAccountSignup = () => {
                                 data={data}
                                 setOpen={setOpen}
                                 setValue={setValue}
+                            />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <FontAwesome5 name={"user-alt"} color={Colors.PrimaryColor} />
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder='Enter Name'
+                                placeholderTextColor={Colors.PrimaryColor}
+                            />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <FontAwesome5 name={"mail-bulk"} color={Colors.PrimaryColor} />
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder='Enter Email'
+                                keyboardType={"email-address"}
+                                placeholderTextColor={Colors.PrimaryColor}
 
                             />
-                    </View>
-                    <View style={styles.inputContainer}>
-                        <FontAwesome5 name={"user-alt"} color={Colors.PrimaryColor} />
-                        <TextInput
-                            style={styles.textInput}
-                            placeholder='Enter your name'
-                            placeholderTextColor={Colors.PrimaryColor}
-                        />
-                    </View>
-                    <View style={styles.inputContainer}>
-                        <FontAwesome5 name={"phone-alt"} color={Colors.PrimaryColor} />
-                        <TextInput
-                            style={styles.textInput}
-                            placeholder='Enter your phone'
-                            keyboardType={"numeric"}
-                            placeholderTextColor={Colors.PrimaryColor}
+                        </View>
 
-                        />
-                    </View>
-                    <View style={styles.inputContainer}>
-                        <FontAwesome5 name={"mail-bulk"} color={Colors.PrimaryColor} />
-                        <TextInput
-                            style={styles.textInput}
-                            placeholder='Enter your email'
-                            keyboardType={"email-address"}
-                            placeholderTextColor={Colors.PrimaryColor}
+                        <View style={styles.rowcontainer}>
+                            <CountryPickerModal
+                                countryCode={countryCode}
+                                setCountryCode={setCountryCode}
+                                country={country}
+                                setCountry={setCountry}
+                            />
+                            <View style={styles.rowinputcontainer}>
+                                <FontAwesome5 name={"globe-americas"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
+                                <TextInput
+                                    style={styles.rowtextInput}
+                                    placeholder='Enter City'
+                                    placeholderTextColor={Colors.PrimaryColor}
 
-                        />
-                    </View>
-                    {value != null && value == "Taxi" && <View style={styles.inputContainer}>
-                        <FontAwesome5 name={"car-side"} color={Colors.PrimaryColor} />
-                        <TextInput
-                            style={styles.textInput}
-                            placeholder='Enter your plate number'
-                            keyboardType={"email-address"}
-                            placeholderTextColor={Colors.PrimaryColor}
+                                />
+                            </View>
+                        </View>
 
-                        />
+                        <View style={styles.rowcontainer}>
+                            <View style={{ ...styles.rowinputcontainer, marginRight: 10 }}>
+                                <FontAwesome5 name={"phone-alt"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
+                                <TextInput
+                                    style={styles.rowtextInput}
+                                    placeholder='Enter Phone'
+                                    keyboardType={"numeric"}
+                                    placeholderTextColor={Colors.PrimaryColor}
+
+                                />
+                            </View>
+                            <View style={styles.rowinputcontainer}>
+                                <FontAwesome5 name={"user-alt"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
+                                <TextInput
+                                    style={styles.rowtextInput}
+                                    placeholder='Enter Age'
+                                    placeholderTextColor={Colors.PrimaryColor}
+                                />
+                            </View>
+                        </View>
+
+                        {value != null && value == "Taxi" && 
+                        <>
+                        <View style={styles.inputContainer}>
+                            <FontAwesome5 name={"car-side"} color={Colors.PrimaryColor} />
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder='Enter Taxi Model'
+                                placeholderTextColor={Colors.PrimaryColor}
+
+                            />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <FontAwesome5 name={"car-side"} color={Colors.PrimaryColor} />
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder='Enter Hire Rate'
+                                placeholderTextColor={Colors.PrimaryColor}
+
+                            />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <FontAwesome5 name={"car-side"} color={Colors.PrimaryColor} />
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder='Enter Plate Number'
+                                placeholderTextColor={Colors.PrimaryColor}
+
+                            />
+                        </View>
+                        <View style={styles.descriptionbox}>
+                            <MaterialIcons name={"description"} size={15} color={Colors.PrimaryColor} style={styles.descriptionicon} />
+                            <TextInput
+                                style={styles.textbox}
+                                placeholder='Enter Breif Introduction'
+                                underlineColorAndroid="transparent"
+                                multiline={true}
+                                numberOfLines={8}
+                                placeholderTextColor={Colors.PrimaryColor}
+
+                            />
+                        </View>
+                        </>
+                        }
+                        <View style={{ ...styles.inputContainer, marginHorizontal: 20 }}>
+                            <FontAwesome5 name={"lock"} color={Colors.PrimaryColor} />
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder='Enter Password'
+                                secureTextEntry={passwordVisible}
+                                placeholderTextColor={Colors.PrimaryColor}
+
+                            />
+                            <TouchableOpacity onPress={() => { setPasswordVisible(!passwordVisible) }}>
+                                <FontAwesome5 name={passwordVisible ? "eye-slash" : "eye"} color={Colors.PrimaryColor} />
+                            </TouchableOpacity>
+
+                        </View>
+                       
+                        <TouchableOpacity style={styles.btn}>
+                            <Text style={styles.btntext}>Sign Up</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.btn}>
+                            <Text style={styles.btntext}>Personel Account</Text>
+                        </TouchableOpacity>
                     </View>
-                    }
-                    <TouchableOpacity style={styles.btn}>
-                        <Text style={styles.btntext}>Login</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => {  navigation.goBack() }} style={styles.btn}>
-                        <Text style={styles.btntext}>Personel Account</Text>
-                    </TouchableOpacity>
                 </View>
-            </View>
             </ScrollView>
         </SafeAreaView >
     )

@@ -23,7 +23,8 @@ export const styles = StyleSheet.create({
     },
     image: {
         width: 200,
-        height: 200
+        height: 100,
+        marginVertical:20
     },
     authtext: {
         color: Colors.PrimaryColor,
@@ -36,7 +37,6 @@ export const styles = StyleSheet.create({
         bottom: 30
     },
     subcontainer: {
-
         width: "100%",
         backgroundColor: Colors.WhiteColor,
         paddingHorizontal: 10,
@@ -66,15 +66,55 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: Colors.PrimaryColor,
         paddingHorizontal: 10,
-        marginVertical: 10,
+        marginVertical: 5,
         borderRadius: 10,
         marginHorizontal:15,
     },
+    descriptionicon:{
+    marginTop:12
+    },
+    descriptionbox:{
+        flexDirection: "row",
+        alignItems: "flex-start",
+        borderWidth: 1,
+        borderColor: Colors.PrimaryColor,
+        paddingHorizontal: 10,
+        marginVertical: 5,
+        borderRadius: 10,
+        marginHorizontal:15,
+    },
+    textbox:{
+        marginHorizontal: 5,
+        height: 100,
+        width: "100%",
+        color: Colors.PrimaryColor,
+        textAlignVertical: 'top',
+    },
     textInput: {
-        marginHorizontal: 10,
+        marginHorizontal: 5,
         height: 50,
         width: "100%",
         color: Colors.PrimaryColor
+    },
+    rowtextInput:{
+        marginLeft:5,
+        height: 50,
+        width: "80%",
+        color: Colors.PrimaryColor
+    },
+    rowinputcontainer:{
+        flexDirection:"row",
+        alignItems:"center",
+        borderWidth:1,
+        borderRadius:10,
+        borderColor:Colors.PrimaryColor,
+        width:"50%"
+    },
+    rowcontainer:{
+        height:50,
+        flexDirection:"row",
+        marginVertical:5,
+        marginHorizontal:10
     },
     btn: {
         backgroundColor: Colors.PrimaryColor,
@@ -94,8 +134,8 @@ export const styles = StyleSheet.create({
     },
     dropdowncontainer:{
         zIndex:1,
-        width:'100%',
-        marginBottom:10,
+        width:'97%',
+        marginBottom:5,
     },
     languagedropdowncontainer:{
         zIndex:1,

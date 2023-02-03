@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     maincontainer: {
         flex: 1,
         backgroundColor: Colors.PrimaryColor,
-        justifyContent: "center",
     },
     maincontent: {
         // justifyContent: "center",
@@ -23,7 +22,8 @@ export const styles = StyleSheet.create({
     },
     image: {
         width: 200,
-        height: 200
+        height: 100,
+        marginVertical:20
     },
     authtext: {
         color: Colors.PrimaryColor,

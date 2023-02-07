@@ -7,6 +7,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import DropdownPicker from '../../components/DropdownPicker/DropdownPicker';
 import CountryPickerModal from '../../components/CountryPicker/CountryPicker';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 const BusinessAccountSignup = () => {
 
@@ -17,6 +18,8 @@ const BusinessAccountSignup = () => {
     const [country, setCountry] = useState('')
     const [countryCode, setCountryCode] = useState('')
     const [passwordVisible, setPasswordVisible] = useState(true)
+
+    const [countryValidation, setCountryValidation]=useState("")
 
     const data = [
         { label: 'Taxi', value: 'Taxi' },
@@ -63,20 +66,27 @@ const BusinessAccountSignup = () => {
                         </View>
 
                         <View style={styles.rowcontainer}>
+                            <View style={{flex:1}}>                            
                             <CountryPickerModal
                                 countryCode={countryCode}
                                 setCountryCode={setCountryCode}
                                 country={country}
                                 setCountry={setCountry}
+                                setCountryValidation={setCountryValidation}
                             />
-                            <View style={styles.rowinputcontainer}>
-                                <FontAwesome5 name={"globe-americas"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
-                                <TextInput
-                                    style={styles.rowtextInput}
-                                    placeholder='Enter City'
-                                    placeholderTextColor={Colors.PrimaryColor}
+                           {countryValidation && <ErrorMessage error={countryValidation}/>}
+                            </View>
 
-                                />
+                            <View style={{ flex: 1 }}>
+                                <View style={{ ...styles.rowinputcontainer,marginLeft:5, flex: 0, height: 50 }}>
+                                    <FontAwesome5 name={"globe-americas"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
+                                    <TextInput
+                                        style={styles.rowtextInput}
+                                        placeholder='Enter City'
+                                        placeholderTextColor={Colors.PrimaryColor}
+
+                                    />
+                                </View>
                             </View>
                         </View>
 

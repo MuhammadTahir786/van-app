@@ -4,7 +4,7 @@ import CountryPicker from "react-native-country-picker-modal";
 import { Colors } from '../../constants/Colors'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const CountryPickerModal = ({countryCode,setCountryCode,country,setCountry}) => {
+const CountryPickerModal = ({countryCode,setCountryCode,country,setCountry,setCountryValidation}) => {
 
     const [withCountryNameButton, setWithCountryNameButton] = useState(true,)
     const [withCountryNameText, setWithCountryNameText] = useState(true,)
@@ -17,12 +17,13 @@ const CountryPickerModal = ({countryCode,setCountryCode,country,setCountry}) => 
     const onSelect = (country) => {
         setCountryCode(country.cca2)
         setCountry(country.name)
+        setCountryValidation("")
         console.log(country.name)
     }
 
     return (
-        <View style={{ borderWidth: 1, width:"50%", borderColor: Colors.PrimaryColor, borderRadius: 10,marginRight:10 }}>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, alignItems: "center", marginRight: 5 }}>
+        <View style={{flex:1,height:50, borderWidth: 1, borderColor: Colors.PrimaryColor, borderRadius: 10,marginRight:5}}>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, alignItems: "center" }}>
                 {country == "" && <FontAwesome5 name={"globe-americas"} color={Colors.PrimaryColor} style={{ paddingRight: 10, paddingLeft: 5 }} />}
                 <CountryPicker
                     placeholder={<Text style={{ color: Colors.PrimaryColor,fontSize:14 }}>Select Country</Text>}

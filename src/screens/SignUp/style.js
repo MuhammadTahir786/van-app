@@ -41,7 +41,6 @@ export const styles = StyleSheet.create({
         backgroundColor: Colors.WhiteColor,
         paddingHorizontal: 10,
         borderRadius: 20,
-        paddingHorizontal: 15,
         paddingVertical: 15,
         alignItems:"center"
 
@@ -103,18 +102,19 @@ export const styles = StyleSheet.create({
         color: Colors.PrimaryColor
     },
     rowinputcontainer:{
+        flex:1,
         flexDirection:"row",
         alignItems:"center",
         borderWidth:1,
         borderRadius:10,
         borderColor:Colors.PrimaryColor,
-        width:"50%"
     },
     rowcontainer:{
-        height:50,
+        flex:1,
+        // height:50,
         flexDirection:"row",
         marginVertical:5,
-        marginHorizontal:10
+        marginHorizontal:5
     },
     btn: {
         backgroundColor: Colors.PrimaryColor,

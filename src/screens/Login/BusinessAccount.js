@@ -25,9 +25,11 @@ const BusinessAccount = () => {
 
     return (
         <SafeAreaView style={styles.maincontainer}>
-            <ScrollView style={{flexGrow:1}} contentContainerStyle={styles.maincontent}>
+            <ScrollView  contentContainerStyle={styles.maincontent}>
+            <View style={{ alignItems: "center" }}>
+                    <Image source={require("../../assets/Logo.png")} resizeMode="contain" style={styles.image} />
+            </View>
             <View style={styles.container}>
-                <Image source={require("../../assets/Logo.png")} resizeMode="contain" style={styles.image} />
                 <View style={styles.subcontainer}>
                     <Text style={styles.loginHeading}>Business Account</Text>
                     <View style={styles.dropdowncontainer}>

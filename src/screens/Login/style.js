@@ -5,17 +5,16 @@ export const styles = StyleSheet.create({
     maincontainer: {
         flex: 1,
         backgroundColor: Colors.PrimaryColor,
-        justifyContent: "center",
+        // justifyContent: "center",
     },
     maincontent: {
-        // justifyContent: "center",
-        // flex: 1,
+        justifyContent: "center",
+        flexGrow: 1,
         // paddingBottom:50
     },
     container: {
         flex: 1,
         flexGrow:1,
-        height:"100%",
         alignItems: "center",
         justifyContent: "center",
         marginHorizontal: 20,
@@ -23,7 +22,8 @@ export const styles = StyleSheet.create({
     },
     image: {
         width: 200,
-        height: 200
+        height: 100,
+        marginVertical:20
     },
     authtext: {
         color: Colors.PrimaryColor,
@@ -43,7 +43,8 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         paddingHorizontal: 15,
         paddingVertical: 15,
-        alignItems:"center"
+        alignItems:"center",
+        justifyContent:"center",
 
     },
     loginHeading: {

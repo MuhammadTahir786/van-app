@@ -6,6 +6,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import Languages from '../../constants/Localization/localization';
 import CountryPickerModal from '../../components/CountryPicker/CountryPicker';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 const PersonelAccountSignup = () => {
 
@@ -15,15 +16,44 @@ const PersonelAccountSignup = () => {
     const [countryCode, setCountryCode] = useState('')
     const [passwordVisible,setPasswordVisible] = useState(true)
 
+    const [name,setName]=useState("")
+    const [email,setEmail] = useState("")
+    const [city,setCity] = useState("")
+    const [passport,setPassport] = useState("")
+    const [age,setAge] = useState("")
+    const [phone,setPhone] = useState("")
+    const [password,setPassword] = useState("")
 
-    //name
-    //country
-    //city
-    // passport id
-    //age
-    // phone
-    //email
-    //password
+    const [nameValidation,setNameValidation] = useState("")
+    const [passwordValidation,setPasswordValidation] = useState("")
+    const [countryValidation,setCountryValidation] = useState("")
+    const [emailValidation,setEmailValidation]=useState("")
+    const [ageValidation,setAgeValidation]=useState("")
+
+
+    const Submit = async () => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+        if (name == "") {
+            setNameValidation("Required*")
+        }
+        else if (email == "") {
+            setEmailValidation("Required*")
+        }
+        else if (reg.test(email) == false) {
+            setEmailValidation("Enter a valid email address")
+        }
+        else if (country == "") {
+            setCountryValidation("Required*")
+        }
+        else if (password == "") {
+            setPasswordValidation("Required*")
+        }
+        else {
+            navigation.replace("PersonelAccount")
+        }
+
+
+    }
     
 
     return (
@@ -39,8 +69,11 @@ const PersonelAccountSignup = () => {
                                 style={styles.textInput}
                                 placeholder='Enter Name'
                                 placeholderTextColor={Colors.PrimaryColor}
+                                value={name}
+                                onChangeText={(text)=>{setName(text),setNameValidation("")}}
                             />
                         </View>
+                        {nameValidation && <ErrorMessage error={nameValidation} />}
                         <View style={styles.inputContainer}>
                             <FontAwesome5 name={"mail-bulk"} color={Colors.PrimaryColor} />
                             <TextInput
@@ -48,45 +81,75 @@ const PersonelAccountSignup = () => {
                                 placeholder='Enter Email'
                                 keyboardType={"email-address"}
                                 placeholderTextColor={Colors.PrimaryColor}
+                                value={email}
+                                onChangeText={(text) => {setEmail(text),setEmailValidation("")}}
 
                             />
                         </View>
+                        {emailValidation && <ErrorMessage error={emailValidation} />}
+                        {/* <View style={{flex:1,flexDirection:"row",marginHorizontal:5,marginVertical:5}}>
+                                <CountryPickerModal
+                                    countryCode={countryCode}
+                                    setCountryCode={setCountryCode}
+                                    country={country}
+                                    setCountry={setCountry}
+                                    setCountryValidation={setCountryValidation}
+                                />
+                           
+                        </View>
+                        {countryValidation && <ErrorMessage error={countryValidation}/>} */}
 
-                        <View style={styles.rowcontainer}>
+<View style={styles.rowcontainer}>
+                            <View style={{flex:1}}>                            
                             <CountryPickerModal
                                 countryCode={countryCode}
                                 setCountryCode={setCountryCode}
                                 country={country}
                                 setCountry={setCountry}
-                            /> 
-                            <View style={styles.rowinputcontainer}>
-                                <FontAwesome5 name={"globe-americas"} color={Colors.PrimaryColor} style={{marginLeft:5}} />
-                                <TextInput
-                                    style={styles.rowtextInput}
-                                    placeholder='Enter City'
-                                    placeholderTextColor={Colors.PrimaryColor}
+                                setCountryValidation={setCountryValidation}
+                            />
+                           {countryValidation && <ErrorMessage error={countryValidation}/>}
+                            </View>
 
-                                />
+                            <View style={{ flex: 1 }}>
+                                <View style={{ ...styles.rowinputcontainer,marginLeft:5, flex: 0, height: 50 }}>
+                                    <FontAwesome5 name={"globe-americas"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
+                                    <TextInput
+                                        style={styles.rowtextInput}
+                                        placeholder='Enter City'
+                                        placeholderTextColor={Colors.PrimaryColor}
+
+                                    />
+                                </View>
                             </View>
                         </View>
 
                         <View style={styles.rowcontainer}>
-                            <View style={{...styles.rowinputcontainer,marginRight:10}}>
-                                <FontAwesome5 name={"id-card"} color={Colors.PrimaryColor} style={{marginLeft:5}} />
-                                <TextInput
-                                    style={styles.rowtextInput}
-                                    placeholder='Enter Passport'
-                                    placeholderTextColor={Colors.PrimaryColor}
+                            <View style={{flex:1}}>
+                                <View style={{ ...styles.rowinputcontainer, marginRight: 5 }}>
+                                    <FontAwesome5 name={"id-card"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
+                                    <TextInput
+                                        style={styles.rowtextInput}
+                                        placeholder='Enter Passport'
+                                        placeholderTextColor={Colors.PrimaryColor}
+                                        value={passport}
+                                        onChangeText={(text) => { setPassport(text) }}
 
-                                />
+                                    />
+                                </View>
                             </View>
-                            <View style={styles.rowinputcontainer}>
-                                <FontAwesome5 name={"user-alt"} color={Colors.PrimaryColor} style={{marginLeft:5}} />
-                                <TextInput
-                                    style={styles.rowtextInput}
-                                    placeholder='Enter Age'
-                                    placeholderTextColor={Colors.PrimaryColor}
-                                />
+                            
+                            <View style={{flex:1}}>
+                                <View style={{...styles.rowinputcontainer,marginLeft:5,height:50,flex:0}}>
+                                    <FontAwesome5 name={"user-alt"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
+                                    <TextInput
+                                        style={styles.rowtextInput}
+                                        placeholder='Enter Age'
+                                        placeholderTextColor={Colors.PrimaryColor}
+                                        value={age}
+                                        onChangeText={(text) => { setAge(text) }}
+                                    />
+                                </View>
                             </View>
                         </View>
                         
@@ -97,6 +160,8 @@ const PersonelAccountSignup = () => {
                                 placeholder='Enter Phone'
                                 keyboardType={"numeric"}
                                 placeholderTextColor={Colors.PrimaryColor}
+                                value={phone}
+                                onChangeText={(text)=>{setPhone(text)}}
 
                             />
                         </View>
@@ -108,6 +173,8 @@ const PersonelAccountSignup = () => {
                                 placeholder='Enter Password'
                                 secureTextEntry={passwordVisible} 
                                 placeholderTextColor={Colors.PrimaryColor}
+                                value={password}
+                                onChangeText={(text)=>{setPassword(text),setPasswordValidation("")}}
 
                             />
                             <TouchableOpacity onPress={()=>{setPasswordVisible(!passwordVisible)}}>
@@ -115,11 +182,12 @@ const PersonelAccountSignup = () => {
                             </TouchableOpacity>
 
                         </View>
-                                      
-                        <TouchableOpacity style={styles.btn}>
+                        {passwordValidation && <ErrorMessage error={passwordValidation} />}
+                
+                        <TouchableOpacity onPress={()=>{Submit()}} style={styles.btn}>
                             <Text style={styles.btntext}>Sign Up</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { navigation.navigate("BusinessAccountSignup") }} style={styles.btn}>
+                        <TouchableOpacity style={styles.btn}>
                             <Text style={styles.btntext}>Business Account</Text>
                         </TouchableOpacity>
                     </View>

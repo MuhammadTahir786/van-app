@@ -24,8 +24,10 @@ const Auth = () => {
     return (
         <SafeAreaView style={styles.maincontainer}>
             <StatusBar animated={true} backgroundColor={Colors.PrimaryColor} barStyle="light-content" />
+            <View style={{alignItems:"center"}}>
+            <Image source={require("../../assets/Logo.png")} resizeMode="contain" style={styles.image} />
+            </View>
             <View style={styles.container}>
-                <Image source={require("../../assets/Logo.png")} resizeMode="contain" style={styles.image} />
                 <View style={styles.subcontainer}>
                     <Text style={styles.loginHeading}>Get Started</Text>
                     <Text style={styles.authtext}>

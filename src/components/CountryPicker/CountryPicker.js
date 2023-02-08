@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { View, Text,ScrollView } from 'react-native'
+import { View, Text,ScrollView, StyleSheet } from 'react-native'
 import CountryPicker from "react-native-country-picker-modal";
 import { Colors } from '../../constants/Colors'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Languages from '../../constants/Localization/localization';
 
 const CountryPickerModal = ({countryCode,setCountryCode,country,setCountry,setCountryValidation}) => {
 
@@ -22,12 +23,12 @@ const CountryPickerModal = ({countryCode,setCountryCode,country,setCountry,setCo
     }
 
     return (
-        <View style={{flex:1,height:50, borderWidth: 1, borderColor: Colors.PrimaryColor, borderRadius: 10,marginRight:5}}>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, alignItems: "center" }}>
-                {country == "" && <FontAwesome5 name={"globe-americas"} color={Colors.PrimaryColor} style={{ paddingRight: 10, paddingLeft: 5 }} />}
+        <View style={styles.container}>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollcontainer}>
+                {country == "" && <FontAwesome5 name={"globe-americas"} color={Colors.PrimaryColor} style={styles.countryicon} />}
                 <CountryPicker
-                    placeholder={<Text style={{ color: Colors.PrimaryColor,fontSize:14 }}>Select Country</Text>}
-                    theme={{ fontSize: 13, primaryColor: 'red', primaryColorVariant: '#eee', placeholderTextColor: 'red', onBackgroundTextColor: Colors.PrimaryColor }}
+                    placeholder={<Text style={styles.countryplaceholder}>{Languages.pa_signup_country}</Text>}
+                    theme={styles.countrytheme}
                     {...{
                         countryCode,
                         withFilter,
@@ -45,3 +46,11 @@ const CountryPickerModal = ({countryCode,setCountryCode,country,setCountry,setCo
 }
 
 export default CountryPickerModal
+
+const styles=StyleSheet.create({
+    container:{flex:1,height:50, borderWidth: 1, borderColor: Colors.PrimaryColor, borderRadius: 10,marginRight:5},
+    scrollcontainer:{ flexGrow: 1, alignItems: "center" },
+    countryicon:{ paddingRight: 10, paddingLeft: 5 },
+    countryplaceholder:{ color: Colors.PrimaryColor,fontSize:14 },
+    countrytheme:{ fontSize: 13, primaryColor: 'red', primaryColorVariant: '#eee', placeholderTextColor: 'red', onBackgroundTextColor: Colors.PrimaryColor },
+})

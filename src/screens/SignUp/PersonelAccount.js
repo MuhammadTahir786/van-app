@@ -1,4 +1,4 @@
-import React, { useMemo,useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native'
 import { styles } from "./style"
 import { Colors } from '../../constants/Colors'
@@ -12,23 +12,23 @@ const PersonelAccountSignup = () => {
 
     const navigation = useNavigation();
 
-    const [country,setCountry]=useState('')
+    const [country, setCountry] = useState('')
     const [countryCode, setCountryCode] = useState('')
-    const [passwordVisible,setPasswordVisible] = useState(true)
+    const [passwordVisible, setPasswordVisible] = useState(true)
 
-    const [name,setName]=useState("")
-    const [email,setEmail] = useState("")
-    const [city,setCity] = useState("")
-    const [passport,setPassport] = useState("")
-    const [age,setAge] = useState("")
-    const [phone,setPhone] = useState("")
-    const [password,setPassword] = useState("")
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [city, setCity] = useState("")
+    const [passport, setPassport] = useState("")
+    const [age, setAge] = useState("")
+    const [phone, setPhone] = useState("")
+    const [password, setPassword] = useState("")
 
-    const [nameValidation,setNameValidation] = useState("")
-    const [passwordValidation,setPasswordValidation] = useState("")
-    const [countryValidation,setCountryValidation] = useState("")
-    const [emailValidation,setEmailValidation]=useState("")
-    const [ageValidation,setAgeValidation]=useState("")
+    const [nameValidation, setNameValidation] = useState("")
+    const [passwordValidation, setPasswordValidation] = useState("")
+    const [countryValidation, setCountryValidation] = useState("")
+    const [emailValidation, setEmailValidation] = useState("")
+    const [ageValidation, setAgeValidation] = useState("")
 
 
     const Submit = async () => {
@@ -54,23 +54,23 @@ const PersonelAccountSignup = () => {
 
 
     }
-    
+
 
     return (
         <SafeAreaView style={styles.maincontainer}>
             <ScrollView style={{ flexGrow: 1 }} contentContainerStyle={styles.maincontent}>
                 <View style={styles.container}>
-                    <Image source={require("../../assets/Logo.png")} resizeMode={'contain'}  style={styles.image} />
+                    <Image source={require("../../assets/Logo.png")} resizeMode={'contain'} style={styles.image} />
                     <View style={styles.subcontainer}>
-                        <Text style={styles.loginHeading}>Personel Account</Text>
+                        <Text style={styles.loginHeading}>{Languages.pa_signup_screen_h}</Text>
                         <View style={styles.inputContainer}>
                             <FontAwesome5 name={"user-alt"} color={Colors.PrimaryColor} />
                             <TextInput
                                 style={styles.textInput}
-                                placeholder='Enter Name'
+                                placeholder={Languages.pa_signup_name}
                                 placeholderTextColor={Colors.PrimaryColor}
                                 value={name}
-                                onChangeText={(text)=>{setName(text),setNameValidation("")}}
+                                onChangeText={(text) => { setName(text), setNameValidation("") }}
                             />
                         </View>
                         {nameValidation && <ErrorMessage error={nameValidation} />}
@@ -78,11 +78,11 @@ const PersonelAccountSignup = () => {
                             <FontAwesome5 name={"mail-bulk"} color={Colors.PrimaryColor} />
                             <TextInput
                                 style={styles.textInput}
-                                placeholder='Enter Email'
+                                placeholder={Languages.pa_signup_email}
                                 keyboardType={"email-address"}
                                 placeholderTextColor={Colors.PrimaryColor}
                                 value={email}
-                                onChangeText={(text) => {setEmail(text),setEmailValidation("")}}
+                                onChangeText={(text) => { setEmail(text), setEmailValidation("") }}
 
                             />
                         </View>
@@ -99,24 +99,24 @@ const PersonelAccountSignup = () => {
                         </View>
                         {countryValidation && <ErrorMessage error={countryValidation}/>} */}
 
-<View style={styles.rowcontainer}>
-                            <View style={{flex:1}}>                            
-                            <CountryPickerModal
-                                countryCode={countryCode}
-                                setCountryCode={setCountryCode}
-                                country={country}
-                                setCountry={setCountry}
-                                setCountryValidation={setCountryValidation}
-                            />
-                           {countryValidation && <ErrorMessage error={countryValidation}/>}
+                        <View style={styles.rowcontainer}>
+                            <View style={{ flex: 1 }}>
+                                <CountryPickerModal
+                                    countryCode={countryCode}
+                                    setCountryCode={setCountryCode}
+                                    country={country}
+                                    setCountry={setCountry}
+                                    setCountryValidation={setCountryValidation}
+                                />
+                                {countryValidation && <ErrorMessage error={countryValidation} />}
                             </View>
 
                             <View style={{ flex: 1 }}>
-                                <View style={{ ...styles.rowinputcontainer,marginLeft:5, flex: 0, height: 50 }}>
+                                <View style={{ ...styles.rowinputcontainer, marginLeft: 5, flex: 0, height: 50 }}>
                                     <FontAwesome5 name={"globe-americas"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
                                     <TextInput
                                         style={styles.rowtextInput}
-                                        placeholder='Enter City'
+                                        placeholder={Languages.pa_signup_city}
                                         placeholderTextColor={Colors.PrimaryColor}
 
                                     />
@@ -125,12 +125,12 @@ const PersonelAccountSignup = () => {
                         </View>
 
                         <View style={styles.rowcontainer}>
-                            <View style={{flex:1}}>
+                            <View style={{ flex: 1 }}>
                                 <View style={{ ...styles.rowinputcontainer, marginRight: 5 }}>
                                     <FontAwesome5 name={"id-card"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
                                     <TextInput
                                         style={styles.rowtextInput}
-                                        placeholder='Enter Passport'
+                                        placeholder={Languages.pa_signup_passport}
                                         placeholderTextColor={Colors.PrimaryColor}
                                         value={passport}
                                         onChangeText={(text) => { setPassport(text) }}
@@ -138,13 +138,13 @@ const PersonelAccountSignup = () => {
                                     />
                                 </View>
                             </View>
-                            
-                            <View style={{flex:1}}>
-                                <View style={{...styles.rowinputcontainer,marginLeft:5,height:50,flex:0}}>
+
+                            <View style={{ flex: 1 }}>
+                                <View style={{ ...styles.rowinputcontainer, marginLeft: 5, height: 50, flex: 0 }}>
                                     <FontAwesome5 name={"user-alt"} color={Colors.PrimaryColor} style={{ marginLeft: 5 }} />
                                     <TextInput
                                         style={styles.rowtextInput}
-                                        placeholder='Enter Age'
+                                        placeholder={Languages.pa_signup_age}
                                         placeholderTextColor={Colors.PrimaryColor}
                                         value={age}
                                         onChangeText={(text) => { setAge(text) }}
@@ -152,43 +152,43 @@ const PersonelAccountSignup = () => {
                                 </View>
                             </View>
                         </View>
-                        
+
                         <View style={styles.inputContainer}>
                             <FontAwesome5 name={"phone-alt"} color={Colors.PrimaryColor} />
                             <TextInput
                                 style={styles.textInput}
-                                placeholder='Enter Phone'
+                                placeholder={Languages.pa_signup_phone}
                                 keyboardType={"numeric"}
                                 placeholderTextColor={Colors.PrimaryColor}
                                 value={phone}
-                                onChangeText={(text)=>{setPhone(text)}}
+                                onChangeText={(text) => { setPhone(text) }}
 
                             />
                         </View>
 
-                        <View style={{...styles.inputContainer,marginHorizontal:20}}>
+                        <View style={{ ...styles.inputContainer, marginHorizontal: 20 }}>
                             <FontAwesome5 name={"lock"} color={Colors.PrimaryColor} />
                             <TextInput
                                 style={styles.textInput}
-                                placeholder='Enter Password'
-                                secureTextEntry={passwordVisible} 
+                                placeholder={Languages.pa_signup_password}
+                                secureTextEntry={passwordVisible}
                                 placeholderTextColor={Colors.PrimaryColor}
                                 value={password}
-                                onChangeText={(text)=>{setPassword(text),setPasswordValidation("")}}
+                                onChangeText={(text) => { setPassword(text), setPasswordValidation("") }}
 
                             />
-                            <TouchableOpacity onPress={()=>{setPasswordVisible(!passwordVisible)}}>
-                                <FontAwesome5 name={passwordVisible?"eye-slash":"eye"} color={Colors.PrimaryColor} />
+                            <TouchableOpacity onPress={() => { setPasswordVisible(!passwordVisible) }}>
+                                <FontAwesome5 name={passwordVisible ? "eye-slash" : "eye"} color={Colors.PrimaryColor} />
                             </TouchableOpacity>
 
                         </View>
                         {passwordValidation && <ErrorMessage error={passwordValidation} />}
-                
-                        <TouchableOpacity onPress={()=>{Submit()}} style={styles.btn}>
-                            <Text style={styles.btntext}>Sign Up</Text>
+
+                        <TouchableOpacity onPress={() => { Submit() }} style={styles.btn}>
+                            <Text style={styles.btntext}>{Languages.pa_signup_btn_txt}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.btn}>
-                            <Text style={styles.btntext}>Business Account</Text>
+                            <Text style={styles.btntext}>{Languages.pa_signup_ba_btn_txt}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

@@ -49,7 +49,7 @@ const PersonelAccount = () => {
                 </View>
                 <View style={styles.container}>
                     <View style={styles.subcontainer}>
-                        <Text style={styles.loginHeading}>Personel Account</Text>
+                        <Text style={styles.loginHeading}>{Languages.pa_login_screen_h}</Text>
                         {/* <View style={styles.inputContainer}>
                             <FontAwesome5 name={"user-alt"} color={Colors.PrimaryColor} />
                             <TextInput
@@ -73,7 +73,7 @@ const PersonelAccount = () => {
                             <TextInput
                                 style={styles.textInput}
                                 placeholderTextColor={Colors.PrimaryColor}
-                                placeholder='Enter your email'
+                                placeholder={Languages.pa_login_email}
                                 keyboardType={"email-address"}
                                 value={email}
                                 onChangeText={(text) => { setEmail(text), setEmailValidation("") }}
@@ -84,7 +84,7 @@ const PersonelAccount = () => {
                             <FontAwesome5 name={"lock"} color={Colors.PrimaryColor} />
                             <TextInput
                                 style={styles.textInput}
-                                placeholder='Enter Password'
+                                placeholder={Languages.pa_login_password}
                                 secureTextEntry={passwordVisible}
                                 placeholderTextColor={Colors.PrimaryColor}
                                 value={password}
@@ -98,10 +98,10 @@ const PersonelAccount = () => {
                         {passwordValidation && <ErrorMessage error={passwordValidation} />}
 
                         <TouchableOpacity onPress={() => { Submit() }} style={styles.btn}>
-                            <Text style={styles.btntext}>Login</Text>
+                            <Text style={styles.btntext}>{Languages.pa_login_btn_txt}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => { navigation.navigate("BusinessAccount") }} style={styles.btn}>
-                            <Text style={styles.btntext}>Business Account</Text>
+                            <Text style={styles.btntext}>{Languages.pa_login_ba_btn_txt}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

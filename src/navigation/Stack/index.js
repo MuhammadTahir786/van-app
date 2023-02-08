@@ -4,6 +4,8 @@ import Splash from "../../screens/Splash/SplashScreen";
 import PersonelAccount from "../../screens/Login/PersonelAccount";
 import BusinessAccount from "../../screens/Login/BusinessAccount";
 import Auth from "../../screens/Login/Auth";
+import PersonelAccountSignup from "../../screens/SignUp/PersonelAccount";
+import BusinessAccountSignup from "../../screens/SignUp/BusinessAccount";
 
 
 
@@ -18,6 +20,8 @@ const StackNavigation = () => {
             <Stack.Screen name="Auth" component={Auth}/>
             <Stack.Screen name="PersonelAccount" component={PersonelAccount}/>
             <Stack.Screen name="BusinessAccount" component={BusinessAccount}/>
+            <Stack.Screen name="PersonelAccountSignup" component={PersonelAccountSignup}/>
+            <Stack.Screen name="BusinessAccountSignup" component={BusinessAccountSignup}/>
         </Stack.Navigator>
     </NavigationContainer>
   ) 

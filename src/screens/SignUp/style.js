@@ -5,15 +5,17 @@ export const styles = StyleSheet.create({
     maincontainer: {
         flex: 1,
         backgroundColor: Colors.PrimaryColor,
+        justifyContent: "center",
     },
     maincontent: {
-        justifyContent: "center",
-        flexGrow: 1,
+        // justifyContent: "center",
+        // flex: 1,
         // paddingBottom:50
     },
     container: {
         flex: 1,
         flexGrow:1,
+        height:"100%",
         alignItems: "center",
         justifyContent: "center",
         marginHorizontal: 20,
@@ -35,15 +37,12 @@ export const styles = StyleSheet.create({
         bottom: 30
     },
     subcontainer: {
-
         width: "100%",
         backgroundColor: Colors.WhiteColor,
         paddingHorizontal: 10,
         borderRadius: 20,
-        paddingHorizontal: 15,
         paddingVertical: 15,
-        alignItems:"center",
-        justifyContent:"center",
+        alignItems:"center"
 
     },
     loginHeading: {
@@ -66,15 +65,56 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: Colors.PrimaryColor,
         paddingHorizontal: 10,
-        marginVertical: 10,
+        marginVertical: 5,
         borderRadius: 10,
         marginHorizontal:15,
     },
+    descriptionicon:{
+    marginTop:12
+    },
+    descriptionbox:{
+        flexDirection: "row",
+        alignItems: "flex-start",
+        borderWidth: 1,
+        borderColor: Colors.PrimaryColor,
+        paddingHorizontal: 10,
+        marginVertical: 5,
+        borderRadius: 10,
+        marginHorizontal:15,
+    },
+    textbox:{
+        marginHorizontal: 5,
+        height: 100,
+        width: "100%",
+        color: Colors.PrimaryColor,
+        textAlignVertical: 'top',
+    },
     textInput: {
-        marginHorizontal: 10,
+        marginHorizontal: 5,
         height: 50,
         width: "100%",
         color: Colors.PrimaryColor
+    },
+    rowtextInput:{
+        marginLeft:5,
+        height: 50,
+        width: "80%",
+        color: Colors.PrimaryColor
+    },
+    rowinputcontainer:{
+        flex:1,
+        flexDirection:"row",
+        alignItems:"center",
+        borderWidth:1,
+        borderRadius:10,
+        borderColor:Colors.PrimaryColor,
+    },
+    rowcontainer:{
+        flex:1,
+        // height:50,
+        flexDirection:"row",
+        marginVertical:5,
+        marginHorizontal:5
     },
     btn: {
         backgroundColor: Colors.PrimaryColor,
@@ -94,8 +134,8 @@ export const styles = StyleSheet.create({
     },
     dropdowncontainer:{
         zIndex:1,
-        width:'100%',
-        marginBottom:10,
+        width:'97%',
+        marginBottom:5,
     },
     languagedropdowncontainer:{
         zIndex:1,

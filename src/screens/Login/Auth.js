@@ -47,7 +47,7 @@ const Auth = () => {
                     <TouchableOpacity onPress={() => { navigation.navigate("PersonelAccount") }} style={styles.btn}>
                         <Text style={styles.btntext}>{Languages.auth_login_btn_txt}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn}>
+                    <TouchableOpacity onPress={() => { navigation.navigate("PersonelAccountSignup") }}  style={styles.btn}>
                         <Text style={styles.btntext}>{Languages.auth_signup_btn_txt}</Text>
                     </TouchableOpacity>
                 </View>

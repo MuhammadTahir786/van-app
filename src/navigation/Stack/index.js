@@ -4,11 +4,13 @@ import Splash from "../../screens/Splash/SplashScreen";
 import PersonelAccount from "../../screens/Login/PersonelAccount";
 import BusinessAccount from "../../screens/Login/BusinessAccount";
 import Auth from "../../screens/Login/Auth";
-import { Colors } from "../../constants/Colors";
+
+
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
+
   return (
     <NavigationContainer>
         <Stack.Navigator initialRouteName="Splash" screenOptions={{headerShown: false,animation:"slide_from_right"}}>
